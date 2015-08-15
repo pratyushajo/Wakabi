@@ -1,0 +1,55 @@
+body {
+  padding: 25px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #242424;
+}
+
+h1, h2, h3, h4 {
+  color: white;
+}
+
+p, li {
+  color: #A0A0A0;
+  font-size: 14px;
+}
+
+li {
+  line-height: 2.0;
+}
+
+/* navbar */
+.navbar-default {
+  background-color: #4D4D4D;
+  border-color: #FFFFFF;
+}
+/* title */
+.navbar-default .navbar-brand {
+  color: #FFFE00;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #FFFE00;
+}
+/* link */
+.navbar-default .navbar-nav > li > a {
+  color: #FFFFFF;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #FFFE00;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #FFFE00;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #FFFE00;
+}
+/* caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border-top-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+}

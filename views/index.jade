@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  div.container
+    div.dashboard-wrapper
+      h1 Dashboard
+      p #{date}
+      div.dashboard-content-wrapper
+        table.analytics-table
+          tr
+            td
+              img(src='/images/motorcycle.png')
+            td
+              h1 #{numDrivers}
+              p Drivers on Shift
+            td
+              h1 #{numIdleDrivers}
+              p Idle Drivers
+            td
+              h1 #{numBusyDrivers}
+              p Rides in Progress
+          tr
+            td
+              img(src='/images/people.png')
+            td
+              h1 #{ridesRequested}
+              p Rides Requested
+            td
+              h1 #{ridesCompleted}
+              p Rides Completed
+            td
+              h1 #{ridesFailed}
+              p Rides Failed
+          tr
+            td
+              img(src='/images/ratings.png')
+            td
+              h1 #{positiveFeedback}
+              p Good Feedback
+            td
+              h1 #{negativeFeedback}
+              p Bad Feedback
+            td
+              h1 #{netFeedback}
+              p Net Feedback
+    div.alerts-wrapper
+      h1 Alerts
+      ul.alerts-list
+        each alert in alerts
+          li
+            a(href='#{alert.path}')= alert.message
+

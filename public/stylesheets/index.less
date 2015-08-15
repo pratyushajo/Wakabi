@@ -1,0 +1,58 @@
+.container {
+  margin-left: 10px;
+  margin-right: 10px;
+
+  .dashboard-wrapper {
+    display: inline-block;
+    width: 70%;
+
+    .dashboard-content-wrapper {
+      margin-top: 20px;
+
+      .analytics-table {
+        margin-right: 20px;
+
+        td {
+          width: 200px;
+          text-align: center;
+          padding-bottom: 20px;
+        }
+
+        td:first-child {
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  .alerts-wrapper {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+
+    .alerts-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 0;
+        padding: 0;
+        background: url('/images/alert.png') no-repeat 0 0;
+        padding-left: 40px;
+        min-height: 32px;
+      }
+
+      a {
+        display: block;
+        color: #F25757;
+        text-decoration: none;
+        margin-bottom: 10px;
+      }
+
+      a:hover {
+        color: #F28585;
+      }
+    }
+  }
+}
