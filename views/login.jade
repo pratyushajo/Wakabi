@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+ head
+  title Login  
+  link(rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css")
+  link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+ body
+  div.loginform
+   form(method="post" id='loginform')
+    input(type="text" name="username" id="uname" placeholder="Username")
+    input(type="password" name="password" id ="pword" placeholder="Password")
+    input(type="submit" class="btn btn-primary btn-block btn-large" value="Log In")
+    a(class='changepw', href="/change-password") Change Password

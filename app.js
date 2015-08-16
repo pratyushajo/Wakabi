@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var sys          = require('sys');
 
+var login 		 = require('./routes/login');
 var index        = require('./routes/index');
 var incoming     = require('./routes/incoming');
 var drivercenter = require('./routes/drivercenter');
@@ -28,7 +29,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.use('/', login);
+app.use('/home', index);
 app.use('/incoming', incoming);
 app.use('/drivercenter', drivercenter);
 app.use('/drivercenter/remove/:id', drivercenter)
