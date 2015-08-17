@@ -15,8 +15,8 @@
     "less": "2.5.1",
     "moment": "2.10.2",
     "morgan": "~1.5.1",
+    "pg": "^4.4.1",
     "request-promise": "*",
-    "pg": "4.x",
     "serve-favicon": "~2.2.0",
     "twilio": "~1.10.0",
     "underscore": "*"
