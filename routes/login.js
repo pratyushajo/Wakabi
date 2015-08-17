@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/',function(req,res){
-	console.log(req.body) //you will get your data in this as object.
+	console.log(req.body) 
 	var username = req.body.username;
 	var password = req.body.password;
 	
@@ -22,7 +22,7 @@ router.post('/',function(req,res){
 	            sys.log("No user found");
 	          } else {
 	            sys.log("user found");
-	            res.render('index');
+	            res.redirect('/home');
 	          }
 	        } else {
 	          sys.log("login: Error querying DB " + err);
