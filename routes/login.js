@@ -28,7 +28,7 @@ router.post('/login',function(req,res){
 	            sys.log("No user found");
 	          } else {
 	            sys.log("user found");
-	            res.render('home');
+	            res.render('index');
 	          }
 	        } else {
 	          sys.log("login: Error querying DB " + err);
