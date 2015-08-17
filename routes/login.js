@@ -22,7 +22,11 @@ router.post('/',function(req,res){
 	            sys.log("No user found");
 	          } else {
 	            sys.log("user found");
-	            res.redirect('/home');
+				if(result.rows[0].password === password){
+	            	res.redirect('/home');
+				} else {
+					sys.log("Invalid password!");
+				}
 	          }
 	        } else {
 	          sys.log("login: Error querying DB " + err);
