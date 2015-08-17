@@ -5,7 +5,7 @@ var sys = require('sys');
 var moment = require('moment');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/home', function(req, res, next) {
   var params = {
     tab: 'Home',
     date: moment().format('MMMM D, YYYY'),
