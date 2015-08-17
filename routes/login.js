@@ -26,6 +26,8 @@ router.post('/',function(req,res){
 	            	res.redirect('/home');
 				} else {
 					sys.log("Invalid password!");
+					alert("Invalid password!");
+					res.redirect('/login');
 				}
 	          }
 	        } else {
