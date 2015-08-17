@@ -8,13 +8,7 @@ router.get('/', function(req, res, next) {
 	res.render('login');
 });
 
-var getLoginCredentials = function(req, res, next) {
-	var username = req.params;
-	var password = req.body.password;
-	console.log(username);
-}
-
-router.post('/home',function(req,res){
+router.post('/',function(req,res){
 	console.log(req.body) //you will get your data in this as object.
 	var username = req.body.username;
 	var password = req.body.password;
