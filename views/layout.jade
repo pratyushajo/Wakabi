@@ -40,5 +40,9 @@ html
             li.active: a( href="/analytics") Analytics
           else
             li: a( href="/analytics") Analytics
+          if tab == 'Payments'
+            li.active: a( href="/payments") Payments
+          else
+            li: a( href="/payments") Payments
 
     block content
