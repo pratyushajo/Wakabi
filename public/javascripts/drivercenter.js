@@ -23,3 +23,9 @@ function removeDriver() {
   //   $(".modal-body").html("<p>Error</p>")
   // )
 }
+
+function addDriver(){
+}
+
+function editDriver(){
+}

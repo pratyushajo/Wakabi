@@ -3,6 +3,8 @@ extends layout
 block content
   div.container
     div.content
+      button(onclick="addDriver()") Add 
+      button(onclick="editDriver()") Edit
       h1 Drivers
       if drivers && drivers.length > 0
         table.drivers-table
@@ -39,4 +41,16 @@ block content
                 button.btn.btn-default(type='button', data-dismiss='modal') No
                 button.btn.btn-danger(type='button', onclick="removeDriver()") Yes
       else
-        h4 No drivers in system
+        h4 
+          tbody
+            tr
+              th
+                | Name &nbsp &nbsp
+              th
+                | Number &nbsp &nbsp
+              th
+                | Rating &nbsp &nbsp
+              th
+                | Total Rides &nbsp &nbsp
+              th
+                | Rides Remaining 
