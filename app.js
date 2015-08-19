@@ -12,6 +12,7 @@ var index        = require('./routes/index');
 var incoming     = require('./routes/incoming');
 var drivercenter = require('./routes/drivercenter');
 var payment = require('./routes/payment');
+var addme = require('./routes/addme');
 
 var app = express();
 
@@ -36,9 +37,9 @@ app.use('/incoming', incoming);
 app.use('/drivercenter', drivercenter);
 app.use('/payment', payment);
 app.use('/drivercenter/remove/:id', drivercenter)
-
+app.use('/drivercenter/Add',addme)
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function(req, res, ne11xt) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
