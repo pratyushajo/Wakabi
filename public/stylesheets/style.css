@@ -250,3 +250,50 @@ position:relative;
 top:2px;
 }
 
+.row
+{
+   min-width: 1200px;
+   margin-left:30px;
+}
+
+.span4
+{
+width:400px;
+}
+
+[class*="span"] {
+    float: left;
+    min-height: 1px;
+    margin-left: 57px;
+}
+
+.circle{
+     margin-top:50px;
+     width: 160px;
+     height: 160px;
+     border-radius: 50%;
+     background-color: white;
+  }
+
+p.btn{
+margin-top:20px;
+margin-left:48px;
+}
+
+.span-label{
+margin-top:-102px;
+margin-left:18px;
+}
+
+.span-price {
+color:white;
+margin-left:30px;
+margin-top:20px;
+}
+
+.span-rides {
+color:white;
+margin-left:-115px;
+margin-top:50px;
+}
+
