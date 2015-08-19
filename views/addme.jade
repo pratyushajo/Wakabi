@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+ head
+  title AddMe
+  link(rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css")
+  link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+	extends layout
+	   block content
+		form(method="post" id='loginform' action="/")
+		   input(type="text" name="First Name" id="fname" placeholder="Firstname")
+           input(type="text" name="Last Name" id ="lname" placeholder="LastName")
+		   input(type="text" name="Contact Details" id="madd" placeholder="contacts")
+		   input(type="text" name= "Licence ID" id="lid" placeholder="licence#")
+		   input(type="number" name="Payment Type" id="ptype" placeholder="payments")
+		   input(typr="submit" value="ADD")
