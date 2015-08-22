@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 var sys = require('sys');
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/localdb';
 
 //Get Login page
 router.get('/', function(req, res, next) {
@@ -13,7 +14,7 @@ router.post('/',function(req,res){
 	var username = req.body.username;
 	var password = req.body.password;
 	
-	pg.connect(process.env.DATABASE_URL, function(err, client) {
+	pg.connect(connectionString, function(err, client) {
 	    if (!err) {
 	      // Check if username and password match
 	      var query = client.query("SELECT password FROM users WHERE username= '" + username + "'", function(err, result) {

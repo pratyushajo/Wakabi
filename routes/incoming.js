@@ -8,7 +8,7 @@ var stages  = require('../public/javascripts/stages');
 var Messenger = require('../public/javascripts/TextMessenger');
 var RiderMessenger  = require('../public/javascripts/Rider/RiderMessenger');
 var DriverMessenger = require('../public/javascripts/Driver/DriverMessenger');
-
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/localdb';
 var router = express.Router();
 
 /******************/
@@ -35,7 +35,7 @@ function isRideStageReset(res, msg) {
 function isQuickDriverSignUp(res, message, from) {
   message = message.replace(/\s+/g, '');
   if (message.toLowerCase() == "signupdriver") {
-    pg.connect(process.env.DATABASE_URL, function(err, client) {
+    pg.connect(connectionString, function(err, client) {
       if (!err) {
         var queryString = "INSERT INTO drivers (num, working, current_zone, has_trailer, rating, last_payment, total_rides_completed, time_last_ride) VALUES ('"
           + from + "', true, 1, true, 100, '" + moment().format('YYYY-MM-DD HH:mm:ssZ') + "', 0, '" + moment('1976-01-01').format('YYYY-MM-DD HH:mm:ssZ') + "')";
@@ -72,7 +72,7 @@ function isQuickDriverSignUp(res, message, from) {
 function isQuickRemoveDriver(res, message, from) {
   message = message.replace(/\s+/g, '');
   if (message.toLowerCase() == "removedriver") {
-    pg.connect(process.env.DATABASE_URL, function(err, client) {
+    pg.connect(connectionString, function(err, client) {
       if (!err) {
         var queryString = "DELETE FROM drivers WHERE num = '" + from + "'";
         var query = client.query(queryString, function(err, result) {

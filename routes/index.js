@@ -3,6 +3,7 @@ var router = express.Router();
 var pg = require('pg');
 var sys = require('sys');
 var moment = require('moment');
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/localdb';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -21,7 +22,7 @@ router.get('/', function(req, res, next) {
     alerts: []
   }
 
-  pg.connect(process.env.DATABASE_URL, function(err, client) {
+  pg.connect(connectionString, function(err, client) {
     if (!err) {
       var query = client.query("SELECT * FROM drivers", function(err, result) {
         if (!err) {
