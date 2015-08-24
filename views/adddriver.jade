@@ -1,0 +1,19 @@
+link(rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css")
+link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+extends layout
+
+block content
+  form(method="POST", id='addme', action="/addme")
+   input(type="hidden", name="_method", value="PUT" )
+  p First Name
+   input(type="text", name="First Name", id="fname", placeholder="Firstname")
+  p Last Name
+   input(type="text", name="Last Name", id ="lname", placeholder="LastName")
+  p Contact Details
+   input(type="text", name="Contact Details", id="cadd", placeholder="contacts")
+  p Licence ID
+   input(type="text", name= "Licence ID", id="lid", placeholder="licenceid")
+  p Payment Type 
+   input(type="number", name="Payment Type", id="ptype", placeholder="payments")
+  p
+   input(type="submit", value="Save")

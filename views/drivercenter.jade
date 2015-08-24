@@ -1,3 +1,4 @@
+link(rel='stylesheet/less', href='/stylesheets/bootstrap.css')
 extends layout
 
 block content
@@ -6,7 +7,6 @@ block content
       div.text-center
         div.btn-toolbar
           button.btn.btn-primary.btn-large(onclick="addDriver()") Add 
-          button.btn.btn-primary.btn-large(onclick="editDriver()") Edit
       h1 Drivers
       if drivers && drivers.length > 0
         table.drivers-table
@@ -26,6 +26,9 @@ block content
                 | Rides Remaining
             each driver in drivers
              - var driverNumber = driver.license_number
+             - var driverName = driver.name
+             - var driverAddress = driver.mailing_address
+             - var driverPhone = driver.phone_number
               - var className = ((currentDriver != null) && (driver.num.replace(/\+/g, '') == currentDriver)) ? "highlight" : ""
               tr(class=className)
                 td= driver.name
@@ -35,8 +38,11 @@ block content
                 td= driver.total_rides_completed
                 td= driver.number_of_rides_remaining
                 td
-                  a.edit-link(type="button", data-toggle="modal", data-target="#remove-driver-confirm" onclick="removeDriverClicked('\  #{driver.license_number} '\)")
+                  a.edit-link(type="button", data-toggle="modal", data-target="#edit-driver-confirm" onclick="editDriverClicked('\ #{driverNumber} '\, '\ #{driverName} '\, '\ #{driverAddress} '\ , '\ #{driverPhone} '\)")
                     | Edit
+                td
+                  a.renew-link(type="button", data-toggle="modal", data-target="#renew-driver-confirm" onclick="renewDriverClicked('\ #{driverNumber} '\)")
+                    | Renew
                 td
                   a.remove-link(type="submit", data-toggle="modal",data-target="#remove-driver-confirm",onclick="removeDriverClicked('\  #{driverNumber} '\ )")
                     | Remove
@@ -54,4 +60,33 @@ block content
               .modal-footer
                 button.btn.btn-default(type='button', data-dismiss='modal') No
                 button.btn.btn-danger(type='button',method="post", onclick="removeDriver()") Yes
+       #edit-driver-confirm.modal.fade(role='dialog')
+         .modal-dialog.modal-sm
+           .modal-content
+             .modal-header
+               button.close(type='button', data-dismiss='modal') &times;
+               |         
+               h4.modal-title Edit Driver
+             |       
+             .modal-body
+               form.form-horizontal(role='form')
+                 .form-group
+                   label.control-label.col-md-1(for='inputName')
+                   | Name
+                   .col-sm-12
+                     input#inputName.form-control(type='text', placeholder='Name')
+                 .form-group
+                   label.control-label.col-md-1(for='inputPhone') 
+                   | Contact Number
+                   .col-sm-12
+                     input#inputPhone.form-control(type='text', placeholder='Contact Number')
+                 .form-group
+                   label.control-label.col-md-1(for='inputAddress') 
+                   | Mailing Address
+                   .col-sm-12
+                     input#inputAddress.form-control(type='text', placeholder='Mailing Address')
+             |       
+             .modal-footer
+               button.btn.btn-default(type='button', data-dismiss='modal') Close
+               button.btn.btn-danger(type='button',method="post", onclick="editDriver()") Save
      
