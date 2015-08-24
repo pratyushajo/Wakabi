@@ -12,7 +12,7 @@ var index        = require('./routes/index');
 var incoming     = require('./routes/incoming');
 var drivercenter = require('./routes/drivercenter');
 var payment = require('./routes/payment');
-var adddriver = require('./routes/adddriver')
+var addDriver = require('./routes/addDriver');
 
 var app = express();
 
@@ -37,7 +37,7 @@ app.use('/incoming', incoming);
 app.use('/drivercenter', drivercenter);
 app.use('/payment', payment);
 app.use('/drivercenter/remove/:id', drivercenter);
-app.use('/adddriver', adddriver);
+app.use('/addDriver', addDriver);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

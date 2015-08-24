@@ -1,19 +1,42 @@
-link(rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css")
-link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
-extends layout
-
-block content
-  form(method="POST", id='addme', action="/addme")
-   input(type="hidden", name="_method", value="PUT" )
-  p First Name
-   input(type="text", name="First Name", id="fname", placeholder="Firstname")
-  p Last Name
-   input(type="text", name="Last Name", id ="lname", placeholder="LastName")
-  p Contact Details
-   input(type="text", name="Contact Details", id="cadd", placeholder="contacts")
-  p Licence ID
-   input(type="text", name= "Licence ID", id="lid", placeholder="licenceid")
-  p Payment Type 
-   input(type="number", name="Payment Type", id="ptype", placeholder="payments")
-  p
-   input(type="submit", value="Save")
+doctype html
+html(lang="en")
+ head
+ 
+  link(rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css")
+  link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+  script(src='/javascripts/addDriver.js')
+ body
+ div.text-center
+  h1 Add Driver
+  form(method="post"  action="/")
+    input(type="hidden", name="_method", value="PUT" )
+    br
+    br
+    p Name  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      input(type="text", name="name", id="name", placeholder="name")
+    br
+    p Phone Number &nbsp &nbsp
+      input(type="text", name="phone_number", id="phone_number", placeholder="phone number")
+    br
+    p Mailing Address &nbsp 
+      input(type="text", name= "mailing_address", id="mailing_address", placeholder="mailing address")
+    br
+    p License Number &nbsp 
+      input(type="text", name= "license_number", id="license_number", placeholder="license number")
+    br
+    p Payment Option &nbsp &nbsp &nbsp &nbsp 
+      select
+        option(value = "combo_payment1") $1.67 for 20 rides
+        option(value = "combo_payment2") $3.34 for 40 rides
+        option(value = "combo_payment3") $5 for 60 rides 
+    br
+    p Recommenders 1 &nbsp 
+      input(type="text", name= "recommenders1", id="recommenders1", placeholder="Recommenders 1")
+    br
+    p Recommenders 2 &nbsp 
+      input(type="text", name= "recommenders2", id="recommenders2", placeholder="Recommenders 2")
+    br
+    br
+div.text-center
+ input(type="submit" class="btn btn-primary btn-large" value="Add" onclick="driverPage()")
+ 

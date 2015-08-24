@@ -3,10 +3,12 @@ var router = express.Router();
 var pg = require('pg');
 var sys = require('sys');
 
-//Get Adding drivers page
+//Get Login page
 router.get('/', function(req, res, next) {
-	res.render('adddriver');
+	res.render('addDriver');
 });
+
+
 
 
 module.exports = router;
