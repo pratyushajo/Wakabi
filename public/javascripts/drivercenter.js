@@ -14,7 +14,7 @@ function removeDriverClicked(driverNum) {
 	removeDriverNum = driverNum.replace(/\s/g, '');
 	console.log("removeDriverClicked: driverNum = " + removeDriverNum)
 	
-  $(".modal-text").text("Are you sure you want to remove driver " +  removeDriverNum + "?")
+  document.getElementById(".modal-text").text("Are you sure you want to remove driver " +  removeDriverNum + "?")
 }
 
 function removeDriver() {
@@ -45,16 +45,16 @@ function editDriverClicked(driverNum, driverName, driverAddress, driverPhone){
 	editDriverAddress = driverAddress.replace(/\s/g, '');
 	editDriverPhone = driverPhone.replace(/\s/g, '');
 	console.log(driverName);
-	$("#inputName").val(editDriverName);
-	$("#inputAddress").val(editDriverAddress);
-	$("#inputPhone").val(editDriverPhone);
+	document.getElementById("inputName").value = editDriverName;
+	document.getElementById("inputAddress").value = editDriverAddress;
+	document.getElementById("inputPhone").value = editDriverPhone;
 }
 
 function editDriver(){
-	$(".modal").hide();
-	var name = $("#inputName").val();
-	var phone = $("#inputPhone").val();
-	var addr = $("#inputAddress").val();
+	$("#editmodal").hide();//.modal('hide');
+	var name = document.getElementById("inputName").value;
+	var phone = document.getElementById("inputPhone").value;
+	var addr = document.getElementById("inputAddress").value;
 	//console.log(name);
 	window.location.href = 'drivercenter/edit/'+editDriverNum+'/'+name+'/'+addr+'/'+phone;
 }

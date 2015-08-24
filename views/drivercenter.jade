@@ -38,7 +38,7 @@ block content
                 td= driver.total_rides_completed
                 td= driver.number_of_rides_remaining
                 td
-                  a.edit-link(type="button", data-toggle="modal", data-target="#edit-driver-confirm" onclick="editDriverClicked('\ #{driverNumber} '\, '\ #{driverName} '\, '\ #{driverAddress} '\ , '\ #{driverPhone} '\)")
+                  a.edit-link(type="button", data-toggle="modal", data-target="#edit-driver-confirm", id = "editmodal" onclick="editDriverClicked('\ #{driverNumber} '\, '\ #{driverName} '\, '\ #{driverAddress} '\ , '\ #{driverPhone} '\)")
                     | Edit
                 td
                   a.renew-link(type="button", data-toggle="modal", data-target="#renew-driver-confirm" onclick="renewDriverClicked('\ #{driverNumber} '\)")
