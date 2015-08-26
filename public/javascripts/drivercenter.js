@@ -8,6 +8,11 @@ var editDriverName = "";
 var editDriverAddress = "";
 var editDriverPhone = "";
 
+var renewDriverRides = "";
+var renewDriverNum = "";
+
+
+
 function removeDriverClicked(driverNum) {
   
     
@@ -50,6 +55,15 @@ function editDriverClicked(driverNum, driverName, driverAddress, driverPhone){
 	document.getElementById("inputPhone").value = editDriverPhone;
 }
 
+function renewDriverClicked(driverRides,driverNum){
+	renewDriverRides = driverRides.replace(/\s/g, '');
+	renewDriverNum = driverNum.replace(/\s/g, '');
+
+	console.log(renewDriverRides);
+}
+
+
+
 function editDriver(){
 	$("#editmodal").hide();//.modal('hide');
 	var name = document.getElementById("inputName").value;
@@ -57,4 +71,15 @@ function editDriver(){
 	var addr = document.getElementById("inputAddress").value;
 	//console.log(name);
 	window.location.href = 'drivercenter/edit/'+editDriverNum+'/'+name+'/'+addr+'/'+phone;
+}
+
+function renewDriver(){
+	$(".modal").hide();//.modal('hide');
+	
+	var payment_option = document.getElementById("inputPayment").value;
+	
+	var rides_total = parseInt(payment_option) + parseInt(renewDriverRides)
+	
+	//console.log(name);
+	window.location.href = 'drivercenter/renew/'+renewDriverNum + '/'+rides_total;
 }

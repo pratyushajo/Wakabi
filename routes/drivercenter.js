@@ -51,6 +51,33 @@ router.get('/edit/:id/:name/:addr/:phone', function(req, res, next) {
 });
 
 
+/* Edit driver info */
+router.get('/renew/:id/:payment_option', function(req, res, next) {
+	var payment_option = req.params.payment_option;
+	var driverNum = req.params.id;
+	debugger;
+	
+  pg.connect(connectionString, function(err, client) {
+    if (!err) {
+		var queryString = "UPDATE drivers SET number_of_rides_remaining = '"+ payment_option + "'WHERE license_number = '" + driverNum + "'";
+      var query = client.query(queryString, function(err, result) {
+        if (!err) {
+		  res.redirect('/drivercenter')
+          //res.success()
+        } else {
+          res.error()
+        }
+        client.end();
+      });
+    } else {
+      res.error()
+    }
+  });
+});
+
+
+
+
 /* GET driver center page. */
 router.get('/', function(req, res, next) {
   var params = {
