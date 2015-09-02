@@ -7,7 +7,7 @@ var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/lo
 
 //Get Login page
 router.get('/', function(req, res, next) {
-	res.render('adddriver');
+	res.render('addDriver');
 });
 
 
