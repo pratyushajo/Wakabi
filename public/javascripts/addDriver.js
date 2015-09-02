@@ -1,3 +1,3 @@
 function back(){
-	window.location.href = 'drivercenter/';
+	window.location.href = '/drivercenter';
 }

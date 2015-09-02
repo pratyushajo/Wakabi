@@ -41,7 +41,7 @@ function removeDriver() {
 }
 
 function addDriver(){
-	window.location.href = "adddriver";
+	window.location.href = "addDriver/";
 }
 
 function editDriverClicked(driverNum, driverName, driverAddress, driverPhone){
