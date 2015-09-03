@@ -98,7 +98,7 @@ module.exports.updateDriverRatingWithRiderNum = function(res, riderNum, message)
         if (!err) {
           var ride = result.rows[0]
           var driverNum = ride.driver_num
-          var queryString = "SELECT * FROM drivers WHERE num = '" + driverNum + "'"
+          var queryString = "SELECT * FROM drivers WHERE phone_number = '" + driverNum + "'"
           var query = client.query(queryString, function(err, result) {
             if (!err) {
               var driver = result.rows[0]
@@ -111,7 +111,7 @@ module.exports.updateDriverRatingWithRiderNum = function(res, riderNum, message)
               var newRating = (1/(totalRides+1))*multiplier + (totalRides/(totalRides+1))*currentRating
 
               var queryString = "UPDATE drivers SET rating = " + newRating + ", total_rides_completed = "
-                + (totalRides+1) + " WHERE num = '" + driverNum + "'"
+                + (totalRides+1) + " WHERE phone_number = '" + driverNum + "'"
               var query = client.query(queryString, function(err, result) {
                 if (!err) {
                   cookies = {
@@ -144,7 +144,7 @@ module.exports.updateDriverRatingWithRiderNum = function(res, riderNum, message)
 module.exports.getDriverFromNum = function(number, cb) {
   pg.connect(process.env.DATABASE_URL, function(err, client) {
     if (!err) {
-      var query = client.query("SELECT * FROM drivers WHERE num = '" + number + "'", function(err, result) {
+      var query = client.query("SELECT * FROM drivers WHERE phone_number = '" + number + "'", function(err, result) {
         if (!err) {
           if (result.rows.length == 1) {
             cb(result.rows[0])
