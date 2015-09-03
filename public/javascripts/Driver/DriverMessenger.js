@@ -128,7 +128,7 @@ function handleEndRideText(res, message, from) {
             var queryString = "UPDATE rides SET end_time = '" + endTime + "', status = 'FINISHED' WHERE ride_id = " + ride.ride_id
             var query = client.query(queryString, function(err, result) {
               if (!err) {
-                var queryString = "UPDATE drivers SET time_last_ride = '" + endTime + "' WHERE num = '" + from + "'"
+                var queryString = "UPDATE drivers SET time_last_ride = '" + endTime + "' WHERE phone_number = '" + from + "'"
                 var query = client.query(queryString, function(err, result) {
                   if (!err) {
                     // Timestamp set
@@ -147,13 +147,14 @@ function handleEndRideText(res, message, from) {
 function handleUpdatedLocation(res, message, driverNum) {
   pg.connect(process.env.DATABASE_URL, function(err, client) {
     if (!err) {
-      var queryString = "UPDATE drivers SET current_zone = " + (+message) + " WHERE num = '" + driverNum + "'";
+		//update num to phone_number
+      var queryString = "UPDATE drivers SET current_zone = " + (+message) + " WHERE phone_number = '" + driverNum + "'";
       var query = client.query(queryString, function(err, result) {
         if (!err) {
           cookies = {"driveStage": stages.driveStages.NOTHING}
           Messenger.textResponse(res, strings.updatedDriverLocation, cookies)
           checkRiderWaitingQueue(driverNum, +message)
-
+		  
           var queryString = "UPDATE rides SET destination = " + (+message) + " WHERE driver_num = '" + driverNum + "' AND destination IS NULL"
           var query = client.query(queryString, function(err, result) {
             client.end()

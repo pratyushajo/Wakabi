@@ -34,8 +34,9 @@ module.exports.sendRequestToAvailableDriver = function(params) {
       var query = client.query(queryString, function(err, result) {
         if (!err) {
           var ride = result.rows[0]
+			//drivers.num needs to be changed to phone_number
           var queryString = "SELECT * FROM drivers WHERE working = 'true' AND current_zone = " + ride.origin +
-            " AND NOT EXISTS (SELECT 1 FROM rides WHERE end_time = NULL AND driver_num = drivers.num)"
+            " AND NOT EXISTS (SELECT 1 FROM rides WHERE end_time = NULL AND driver_num = drivers.phone_number)"
 
           if (ride.trailer_needed) {
             queryString += " AND has_trailer = 'true'"
@@ -64,8 +65,9 @@ module.exports.sendRequestToAvailableDriver = function(params) {
                 cookies = {"rideStage": stages.rideStages.CONTACTING_DRIVER}
                 Messenger.textResponse(params.riderRes, strings.waitText, cookies)
               }
-
-              var addDriverQueryString = "UPDATE rides SET driver_num = '" + driver.num + "' WHERE ride_id = " + ride.ride_id
+			  
+			  //Need to change driver.num to driver.phone_number
+              var addDriverQueryString = "UPDATE rides SET driver_num = '" + driver.phone_number + "' WHERE ride_id = " + ride.ride_id
               var addDriverQuery = client.query(addDriverQueryString, function(err, result) {
                 if (!err) {
                   // good

@@ -162,7 +162,8 @@ var receiveIncomingMessage = function(req, res, next) {
   pg.connect(process.env.DATABASE_URL, function(err, client) {
     if (!err) {
       // Check if sender is a driver
-      var query = client.query("SELECT num FROM drivers WHERE num = '" + from + "'", function(err, result) {
+		//Need to change num to phone_number
+      var query = client.query("SELECT num FROM drivers WHERE phone_number = '" + from + "'", function(err, result) {
         if (!err) {
           if (result.rows.length == 0) {
             sys.log("incoming: sender is a rider");
