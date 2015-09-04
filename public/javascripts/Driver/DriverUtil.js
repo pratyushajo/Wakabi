@@ -5,7 +5,7 @@ module.exports = {
   toggleDriverShift: function(from, starting, cb) {
     pg.connect(process.env.DATABASE_URL, function(err, client) {
       if (!err) {
-        var queryString = "UPDATE drivers SET working = " + starting + " WHERE num = '" + from + "'"
+        var queryString = "UPDATE drivers SET working = " + starting + " WHERE phone_number = '" + from + "'"
         var query = client.query(queryString, function(err, result) {
           client.end()
 
@@ -23,7 +23,7 @@ module.exports = {
   updateLocation: function(driverNum, location, cb) {
     pg.connect(process.env.DATABASE_URL, function(err, client) {
       if (!err) {
-        var queryString = "UPDATE drivers SET current_zone = " + location + " WHERE num = '" + driverNum + "'"
+        var queryString = "UPDATE drivers SET current_zone = " + location + " WHERE phone_number = '" + driverNum + "'"
         var query = client.query(queryString, function(err, result) {
           client.end()
 
@@ -41,7 +41,7 @@ module.exports = {
   getDriverWithNum: function(driverNum, cb) {
     pg.connect(process.env.DATABASE_URL, function(err, client) {
       if (!err) {
-        var queryString = "SELECT * FROM drivers WHERE num = '" + driverNum + "'"
+        var queryString = "SELECT * FROM drivers WHERE phone_number = '" + driverNum + "'"
         var query = client.query(queryString, function(err, result) {
           client.end()
 
