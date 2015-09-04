@@ -163,7 +163,7 @@ var receiveIncomingMessage = function(req, res, next) {
     if (!err) {
       // Check if sender is a driver
 		//Need to change num to phone_number
-      var query = client.query("SELECT num FROM drivers WHERE phone_number = '" + from + "'", function(err, result) {
+      var query = client.query("SELECT phone_number FROM drivers WHERE phone_number = '" + from + "'", function(err, result) {
         if (!err) {
           if (result.rows.length == 0) {
             sys.log("incoming: sender is a rider");
