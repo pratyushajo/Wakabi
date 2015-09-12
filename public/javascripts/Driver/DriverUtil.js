@@ -9,15 +9,15 @@ module.exports = {
         var queryString = "UPDATE drivers SET working = " + cb + " WHERE phone_number = '" + starting + "'"
         var query = client.query(queryString, function(err, result) {
           client.end()
-
+		  
           if (err) {
-            cb(err)
+            //cb(err)
           } else {
-            cb()
+            //cb()
           }
         })
       } else {
-        cb(err)
+        //cb(err)
       }
     })
   },
