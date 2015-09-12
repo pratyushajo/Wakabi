@@ -18,7 +18,7 @@ function requestLocation(res, resend, stage) {
 }
 
 function receiveStartShiftLocation(res, location, from) {
-  DriverUtil.toggleDriverShift(res, from, true, function(err) {
+  DriverUtil.toggleDriverShift(from, true, function(err) {
     if (!err) {
       DriverUtil.updateLocation(from, +location, function(err) {
         var responseText = ""
