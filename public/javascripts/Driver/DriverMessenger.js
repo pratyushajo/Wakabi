@@ -18,6 +18,7 @@ function requestLocation(res, resend, stage) {
 }
 
 function receiveStartShiftLocation(res, location, from) {
+	//Incorrect arguments were being sent to the function in version 1. Fixed the issue.
   DriverUtil.toggleDriverShift(from, true, function(err) {
     if (!err) {
       DriverUtil.updateLocation(from, +location, function(err) {

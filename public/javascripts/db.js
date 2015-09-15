@@ -59,7 +59,7 @@ module.exports.sendRequestToAvailableDriver = function(params) {
 
               var driver = result.rows[0]
 
-              DriverMessenger.textDriverForConfirmation(driver.num, ride.rider_num)
+              DriverMessenger.textDriverForConfirmation(driver.phone_number, ride.rider_num)
 
               if (params.riderRes) {
                 cookies = {"rideStage": stages.rideStages.CONTACTING_DRIVER}

@@ -3,8 +3,6 @@ var pg = require('pg')
 
 module.exports = {
   toggleDriverShift: function(from, starting, cb) {
-	  sys.log("From " + from + " starting " + starting);
-	  sys.log("cb " + cb);
     pg.connect(process.env.DATABASE_URL, function(err, client) {
       if (!err) {
         var queryString = "UPDATE drivers SET working = " + starting + " WHERE phone_number = '" + from + "'"
