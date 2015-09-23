@@ -5,6 +5,8 @@ var sys = require('sys');
 var moment = require('moment');
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/localdb';
 
+var Messenger = require('../public/javascripts/TextMessenger');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var params = {
@@ -116,6 +118,60 @@ router.get('/', function(req, res, next) {
       res.render('index', params)
     }
   });
+});
+
+//Broadcast message to all the Riders
+router.get('/sendToAllRiders/:message', function(req, res, next) {
+	var message = req.params.message
+    pg.connect(connectionString, function(err, client) {
+      if (!err) {
+        var queryString = "SELECT * FROM riders";
+        var query = client.query(queryString, function(err, result) {
+          if (!err) {
+	          if (result.rows.length == 0) {
+	            sys.log("Index: No riders in database");
+	          } else {
+				  for(i=0; i<result.rows.length; i++){
+					  var number = result.rows[i].num;
+					  Messenger.text(number, message);
+				  }
+	          }
+          } else {
+            res.error()
+          }
+          client.end();
+        });
+      } else {
+        res.error()
+      }
+    });
+});
+
+//Broadcast message to all the Drivers
+router.get('/sendToAllDrivers/:message', function(req, res, next) {
+	var message = req.params.message
+    pg.connect(connectionString, function(err, client) {
+      if (!err) {
+        var queryString = "SELECT * FROM drivers";
+        var query = client.query(queryString, function(err, result) {
+          if (!err) {
+	          if (result.rows.length == 0) {
+	            sys.log("Index: No drivers in database");
+	          } else {
+				  for(i=0; i<result.rows.length; i++){
+					  var number = result.rows[i].phone_number;
+					  Messenger.text(number, message);
+				  }
+	          }
+          } else {
+            res.error()
+          }
+          client.end();
+        });
+      } else {
+        res.error()
+      }
+    });
 });
 
 module.exports = router;

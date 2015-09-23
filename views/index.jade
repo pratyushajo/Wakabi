@@ -1,6 +1,12 @@
 extends layout
 
 block content
+  div.text-center
+    div.btn-toolbar
+      button.btn.btn-primary.btn-large(type="button", data-toggle="modal", data-target="#broadcastrider", id = "broadcast-modal")
+        | Promotions
+      button.btn.btn-primary.btn-large(type="button", data-toggle="modal", data-target="#broadcastdriver", id = "broadcast-modal")
+        | Send Driver Alerts
   div.container
     div.dashboard-wrapper
       h1 Dashboard
@@ -49,4 +55,44 @@ block content
         each alert in alerts
           li
             a(href='#{alert.path}')= alert.message
+    #broadcastrider.modal.fade(role='dialog')
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal') &times;
+            |         
+            h4.modal-title Send Message
+          |       
+          .modal-body
+            form.form-horizontal(role='form')
+              .form-group
+                label.control-label.col-md-1.label-format(for='inputMessageRider')
+                | Message
+                .col-sm-12
+                  span &nbsp    
+                  input#inputMessageRider.form-control.input-lg(type='text', placeholder='Enter your message')
+          |       
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+            button.btn.btn-danger(type='button',method="post", onclick="sendMessageToRider()") Send
+     #broadcastdriver.modal.fade(role='dialog')
+       .modal-dialog.modal-sm
+         .modal-content
+           .modal-header
+             button.close(type='button', data-dismiss='modal') &times;
+             |         
+             h4.modal-title Send Message
+           |       
+           .modal-body
+             form.form-horizontal(role='form')
+               .form-group
+                 label.control-label.col-md-1.label-format(for='inputMessage')
+                 | Message
+                 .col-sm-12
+                   span &nbsp    
+                   input#inputMessage.form-control.input-lg(type='text', placeholder='Enter your message')
+           |       
+           .modal-footer
+             button.btn.btn-default(type='button', data-dismiss='modal') Close
+             button.btn.btn-danger(type='button',method="post", onclick="sendMessageToDriver()") Send
 
