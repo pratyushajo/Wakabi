@@ -134,8 +134,8 @@ router.get('/sendToAllRiders/:message', function(req, res, next) {
 				  for(i=0; i<result.rows.length; i++){
 					  var number = result.rows[i].num;
 					  Messenger.text(number, message);
-					  res.redirect('/home');
 				  }
+				res.redirect('/home');
 	          }
           } else {
             res.error()
@@ -162,8 +162,8 @@ router.get('/sendToAllDrivers/:message', function(req, res, next) {
 				  for(i=0; i<result.rows.length; i++){
 					  var number = result.rows[i].phone_number;
 					  Messenger.text(number, message);
-					  res.redirect('/home');
 				  }
+				  res.redirect('/home');
 	          }
           } else {
             res.error()
