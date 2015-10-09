@@ -17,8 +17,16 @@ html(lang="en")
     p Phone Number &nbsp &nbsp
       input(type="text", name="phone_number", id="phone_number", placeholder="phone number")
     br
-    p Mailing Address &nbsp 
-      input(type="text", name= "mailing_address", id="mailing_address", placeholder="mailing address")
+    p Stage &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      select(name="stagepicker")
+        option(value = "1") Nabyewanga
+        option(value = "2") Kakoni
+        option(value = "3") Katonga
+        option(value = "4") Kayabwe
+        option(value = "5") University
+        option(value = "6") Bugeye
+        option(value = "7") Golo Town
+        option(value = "8") Nabusanke
     br
     p License Number &nbsp 
       input(type="text", name= "license_number", id="license_number", placeholder="license number")
@@ -29,11 +37,17 @@ html(lang="en")
         option(value = "40") $3.34 for 40 rides
         option(value = "60") $5 for 60 rides 
     br
-    p Recommenders 1 &nbsp 
-      input(type="text", name= "recommenders1", id="recommenders1", placeholder="Recommenders 1")
+    p Recommender 1 &nbsp &nbsp
+      input(type="text", name= "recommenders1", id="recommenders1", placeholder="Recommender 1")
     br
-    p Recommenders 2 &nbsp 
+    p Contact &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+      input(type="text", name= "recommender1con", id="recommender1con", placeholder="Contact for Recommender 1")
+    br
+    p Recommender 2 &nbsp &nbsp
       input(type="text", name= "recommenders2", id="recommenders2", placeholder="Recommenders 2")
+    br
+    p Contact &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+      input(type="text", name= "recommender2con", id="recommender2con", placeholder="Contact for Recommender 2")
     br
     br
     input(type="submit" class="btn btn-primary btn-large" value="Add")

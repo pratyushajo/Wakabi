@@ -1,14 +1,13 @@
 exports.keywordRide = "ride";
 exports.availableLocations = [
-  "Mitala Maria",
-  "Buwama",
+  "Nabyewanga",
+  "Kakoni",
+  "Katonga",
   "Kayabwe",
-  "Seeta",
-  "Goru",
-  "Lukaya",
-  "Lusango",
-  "Ntale",
-  "Kiti"
+  "University",
+  "Bugeye",
+  "Golo Town",
+  "Nabusanke"
 ];
 exports.resendText = "We\'re sorry, we did not understand that message. ";
 exports.askLocation = "Please respond with the number corresponding to your location:\n";
