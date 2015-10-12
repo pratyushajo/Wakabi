@@ -44,7 +44,7 @@ function addDriver(){
 	window.location.href = "addDriver/";
 }
 
-function editDriverClicked(driverNum, driverName, driverAddress, driverPhone){
+function editDriverClicked(driverNum, driverName, driverStage, driverPhone){
 	editDriverNum = driverNum.replace(/\s/g, '');
 	editDriverName = driverName.replace(/\s/g, '');
 	editDriverStage = driverStage.replace(/\s/g, '');
@@ -69,7 +69,7 @@ function editDriver(){
 	var name = document.getElementById("inputName").value;
 	var phone = document.getElementById("inputPhone").value;
 	var stage = document.getElementById("inputStage").value;
-	//console.log(name);
+	console.log(stage);
 	window.location.href = 'drivercenter/edit/'+editDriverNum+'/'+name+'/'+stage+'/'+phone;
 }
 

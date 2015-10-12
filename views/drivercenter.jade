@@ -26,7 +26,7 @@ block content
             each driver in drivers
              - var driverNumber = driver.license_number
              - var driverName = driver.name
-             - var driverAddress = driver.mailing_address
+             - var driverStage = driver.current_zone
              - var driverPhone = driver.phone_number
                  - var driverRides = driver.number_of_rides_remaining
               - var className = ((currentDriver != null) && (driver.num.replace(/\+/g, '') == currentDriver)) ? "highlight" : ""
@@ -81,7 +81,7 @@ block content
                    .col-sm-12
                      input#inputPhone.form-control(type='text', placeholder='Contact Number')
                  .form-group
-                   label.control-label.col-md-1(for='inputAddress') 
+                   label.control-label.col-md-1(for='inputStage') 
                    | Stage
                    .col-sm-12
                      select.selectpicker#inputStage
