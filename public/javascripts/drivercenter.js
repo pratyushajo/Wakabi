@@ -5,7 +5,7 @@
 var removeDriverNum = "";
 var editDriverNum = "";
 var editDriverName = "";
-var editDriverAddress = "";
+var editDriverStage = "";
 var editDriverPhone = "";
 
 var renewDriverRides = "";
@@ -47,11 +47,11 @@ function addDriver(){
 function editDriverClicked(driverNum, driverName, driverAddress, driverPhone){
 	editDriverNum = driverNum.replace(/\s/g, '');
 	editDriverName = driverName.replace(/\s/g, '');
-	editDriverAddress = driverAddress.replace(/\s/g, '');
+	editDriverStage = driverStage.replace(/\s/g, '');
 	editDriverPhone = driverPhone.replace(/\s/g, '');
 	console.log(driverName);
 	document.getElementById("inputName").value = editDriverName;
-	document.getElementById("inputAddress").value = editDriverAddress;
+	document.getElementById("inputStage").value = editDriverStage;
 	document.getElementById("inputPhone").value = editDriverPhone;
 }
 
@@ -68,9 +68,9 @@ function editDriver(){
 	$("#editmodal").hide();//.modal('hide');
 	var name = document.getElementById("inputName").value;
 	var phone = document.getElementById("inputPhone").value;
-	var addr = document.getElementById("inputAddress").value;
+	var stage = document.getElementById("inputStage").value;
 	//console.log(name);
-	window.location.href = 'drivercenter/edit/'+editDriverNum+'/'+name+'/'+addr+'/'+phone;
+	window.location.href = 'drivercenter/edit/'+editDriverNum+'/'+name+'/'+stage+'/'+phone;
 }
 
 function renewDriver(){

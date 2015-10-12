@@ -26,15 +26,15 @@ router.get('/remove/:id', function(req, res, next) {
 });
 
 /* Edit driver info */
-router.get('/edit/:id/:name/:addr/:phone', function(req, res, next) {
+router.get('/edit/:id/:name/:stage/:phone', function(req, res, next) {
 	var driverNum = req.params.id;
   	var driverName = req.params.name;
 	var driverPhone = req.params.phone;
-	var driverAddress = req.params.addr;
+	var driverStage = req.params.stage;
   pg.connect(connectionString, function(err, client) {
     if (!err) {
       var queryString = "UPDATE drivers SET name = '"+ driverName + "', phone_number = '"+ driverPhone
-						+ "', mailing_address = '"+ driverAddress + "' WHERE license_number = '" + driverNum + "'";
+						+ "', current_zone = '"+ driverStage + "' WHERE license_number = '" + driverNum + "'";
       var query = client.query(queryString, function(err, result) {
         if (!err) {
 		  res.redirect('/drivercenter')

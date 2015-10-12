@@ -38,7 +38,7 @@ block content
                 td= driver.total_rides_completed
                 td= driver.number_of_rides_remaining
                 td
-                  a.edit-link(type="button", data-toggle="modal", data-target="#edit-driver-confirm", id = "editmodal" onclick="editDriverClicked('\ #{driverNumber} '\, '\ #{driverName} '\, '\ #{driverAddress} '\ , '\ #{driverPhone} '\)")
+                  a.edit-link(type="button", data-toggle="modal", data-target="#edit-driver-confirm", id = "editmodal" onclick="editDriverClicked('\ #{driverNumber} '\, '\ #{driverName} '\, '\ #{driverStage} '\ , '\ #{driverPhone} '\)")
                     | Edit
                 td
                   a.renew-link(type="button", data-toggle="modal", data-target="#renew-driver-confirm" onclick="renewDriverClicked('\ #{driverRides} '\,'\ #{driverNumber} '\)")
@@ -84,7 +84,7 @@ block content
                    label.control-label.col-md-1(for='inputAddress') 
                    | Stage
                    .col-sm-12
-                     select.selectpicker#inputPayment
+                     select.selectpicker#inputStage
                        option(value = "1") Nabyewanga
                        option(value = "2") Kakoni
                        option(value = "3") Katonga
