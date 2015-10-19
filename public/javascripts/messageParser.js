@@ -39,7 +39,13 @@ module.exports = {
   isRideRequest: function(msg) {
     msg = msg.replace(/\s+/g, '');
     if (msg.toLowerCase() == strings.keywordRide) {
+		strings.language = "English";
+		console.log("Language set to: " + strings.language);
       return true;
+    } else if (msg.toLowerCase() == strings.keywordRideLug) {
+    	strings.language = "Luganda";
+		console.log("Language set to: " + strings.language);
+		return true;
     }
     return false;
   },
