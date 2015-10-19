@@ -1,6 +1,6 @@
 exports.language = "";
 exports.keywordRide = "ride";
-exports.keywordRideLug = "OKUVUGA";
+exports.keywordRideLug = "okuvuga";
 exports.availableLocations = [
   "Nabyewanga",
   "Kakoni",
